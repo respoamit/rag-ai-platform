@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rag-platform
+spec: 
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: rag-platform
+
+  template:
+    metadata:
+      labels:
+        app: rag-platform
+
+    spec:
+      containers:
+      - name: rag-platform
+
+        image: rag-platform
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8000
+
